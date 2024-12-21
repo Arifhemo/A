@@ -26,21 +26,30 @@
             justify-content: center;
             gap: 20px;
             padding: 20px;
+            flex-wrap: wrap;
         }
         .navbar a {
+            display: inline-block;
             text-decoration: none;
             color: white;
+            background-color: rgba(255, 255, 255, 0.2); /* خلفية شفافة */
+            padding: 15px 30px;
+            border-radius: 10px;
             font-size: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.2s;
         }
         .navbar a i {
-            font-size: 40px;
+            font-size: 30px;
             margin-bottom: 10px;
         }
         .navbar a:hover {
-            color: #1E90FF;
+            background-color: rgba(0, 123, 255, 0.6); /* خلفية شفافة مع لون مائل إلى الأزرق */
+            transform: scale(1.1); /* تأثير تكبير الأزرار عند المرور */
+        }
+        .navbar a span {
+            display: block;
+            font-size: 16px;
         }
         .translate-btn {
             position: absolute;
@@ -70,25 +79,32 @@
     <!-- الروابط إلى حسابات التواصل الاجتماعي مع الأيقونات -->
     <div class="navbar">
         <a href="https://www.instagram.com" target="_blank">
-            <i class="fab fa-instagram"></i> إنستغرام
+            <i class="fab fa-instagram"></i>
+            <span>إنستغرام</span>
         </a>
         <a href="https://www.facebook.com" target="_blank">
-            <i class="fab fa-facebook-f"></i> فيسبوك
+            <i class="fab fa-facebook-f"></i>
+            <span>فيسبوك</span>
         </a>
         <a href="https://www.tiktok.com" target="_blank">
-            <i class="fab fa-tiktok"></i> تيك توك
+            <i class="fab fa-tiktok"></i>
+            <span>تيك توك</span>
         </a>
         <a href="https://wa.me" target="_blank">
-            <i class="fab fa-whatsapp"></i> واتساب
+            <i class="fab fa-whatsapp"></i>
+            <span>واتساب</span>
         </a>
         <a href="https://www.snapchat.com" target="_blank">
-            <i class="fab fa-snapchat-ghost"></i> سناب شات
+            <i class="fab fa-snapchat-ghost"></i>
+            <span>سناب شات</span>
         </a>
         <a href="https://twitter.com" target="_blank">
-            <i class="fab fa-twitter"></i> تويتر
+            <i class="fab fa-twitter"></i>
+            <span>تويتر</span>
         </a>
         <a href="https://discord.com" target="_blank">
-            <i class="fab fa-discord"></i> ديسكورد
+            <i class="fab fa-discord"></i>
+            <span>ديسكورد</span>
         </a>
     </div>
 
@@ -101,14 +117,14 @@
                 document.querySelector('.translate-btn').textContent = "ترجمة إلى الإنجليزية";
                 document.querySelectorAll('.navbar a').forEach((link, index) => {
                     const labels = ["إنستغرام", "فيسبوك", "تيك توك", "واتساب", "سناب شات", "تويتر", "ديسكورد"];
-                    link.textContent = `${labels[index]}`;
+                    link.querySelector('span').textContent = `${labels[index]}`;
                 });
             } else {
                 document.documentElement.lang = "en";
                 document.querySelector('.translate-btn').textContent = "Translate to Arabic";
                 document.querySelectorAll('.navbar a').forEach((link, index) => {
                     const labels = ["Instagram", "Facebook", "TikTok", "WhatsApp", "Snapchat", "Twitter", "Discord"];
-                    link.textContent = `${labels[index]}`;
+                    link.querySelector('span').textContent = `${labels[index]}`;
                 });
             }
         }
